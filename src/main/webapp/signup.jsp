@@ -14,7 +14,6 @@
 				<hr />
 				<form method="post" action="signup">
 					<fieldset>
-
 						<div class="form-group">
 							<label class="form-control-label text-primary"
 								for="inputSuccess1">Select User Type:</label> <select
