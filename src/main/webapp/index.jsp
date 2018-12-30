@@ -1,3 +1,12 @@
+<%@page import="java.util.List"%>
+<%@page import="org.hibernate.Query"%>
+<%@page import="org.hibernate.Transaction"%>
+<%@page import="org.hibernate.Session"%>
+<%@page import="org.hibernate.SessionFactory"%>
+<%@page import="org.hibernate.service.ServiceRegistryBuilder"%>
+<%@page import="org.hibernate.service.ServiceRegistry"%>
+<%@page import="com.gvp.swarajya.Category"%>
+<%@page import="org.hibernate.cfg.Configuration"%>
 <html>
 <head>
 	<title>Swarajya</title>
@@ -24,20 +33,27 @@
 	</div>
 	<div class="container">	
 	<div class="row">
-		<div class="card mb-3 category">
-		  <h3 class="card-header">Farm Production</h3>
-		  <img style="height: 200px; width: 100%; display: block;" src="images/icons/category1.png" alt="Farm Production">
-		</div>
+		<%
+			Configuration conf = new Configuration().configure().addAnnotatedClass(Category.class);
+			ServiceRegistry registry = new ServiceRegistryBuilder().applySettings(conf.getProperties()).buildServiceRegistry();
+			SessionFactory factory = conf.buildSessionFactory(registry);
+			Session hibernSession = factory.openSession();
+			Transaction tx = hibernSession.beginTransaction();
+			String hql = "FROM Category";
+			Query query = (Query) hibernSession.createQuery(hql);
+			List<Category> categories =  query.list();
+			
+			tx.commit();
+		%>
+		<% for(Category category : categories){ %>
 		
-		<div class="card mb-3 category">
-		  <h3 class="card-header">Services</h3>
-		  <img style="height: 200px; width: 100%; display: block;" src="images/icons/category2.png" alt="Farm Production">
+		<div class="card mb-3 col-md-3 category" style="padding:0px;">
+			<a href="sub-category.jsp?ref=1&id=<%=category.getId()%>">
+			  <h3 class="card-header" style="margin:0px;"><%=category.getCategoryName() %></h3>
+			  <img style="margin:0px auto;height: 150px; width: 200px; display: block;" src="images/icons/<%=category.getCategoryIcon() %>" alt="Farm Production">
+			</a>
 		</div>
-		<div class="card mb-3 category">
-		  <h3 class="card-header">Dairy Products</h3>
-		  <img style="height: 200px; width: 100%; display: block;" src="images/icons/category3.png" alt="Farm Production">
-		</div>
-		
+		<% } %>
 		
 	</div>
 </div>

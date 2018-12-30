@@ -16,10 +16,18 @@
   	<servlet-name>addcategory</servlet-name>
   	<servlet-class>com.gvp.swarajya.AddCategory</servlet-class>
   </servlet>
+  <servlet>
+  	<servlet-name>signin</servlet-name>
+  	<servlet-class>com.gvp.swarajya.UserLogin</servlet-class>
+  </servlet>
   
   <servlet-mapping>
   	<servlet-name>signup</servlet-name>
   	<url-pattern>/signup</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>signin</servlet-name>
+  	<url-pattern>/signin</url-pattern>
   </servlet-mapping>
   <servlet-mapping>
   	<servlet-name>adminlogin</servlet-name>

@@ -12,7 +12,7 @@
 				style="box-shadow: 0px 0px 5px 0px #999 !important;">
 				<img src="images/swarajlogo.png" class="img-fluid" width="30%" /><h2>Sign in</h2>
 				<hr />
-				<form action="login" method="post">
+				<form action="signin" method="post">
 					<fieldset>
 						<div class="form-group">
 							<label for="exampleInputEmail1">Email address</label> <input
