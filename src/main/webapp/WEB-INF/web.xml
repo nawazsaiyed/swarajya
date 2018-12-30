@@ -9,9 +9,18 @@
   	<servlet-class>com.gvp.swarajya.AdminLogin</servlet-class>
   </servlet>
   <servlet>
+  	<servlet-name>signup</servlet-name>
+  	<servlet-class>com.gvp.swarajya.SignUp</servlet-class>
+  </servlet>
+  <servlet>
   	<servlet-name>addcategory</servlet-name>
   	<servlet-class>com.gvp.swarajya.AddCategory</servlet-class>
   </servlet>
+  
+  <servlet-mapping>
+  	<servlet-name>signup</servlet-name>
+  	<url-pattern>/signup</url-pattern>
+  </servlet-mapping>
   <servlet-mapping>
   	<servlet-name>adminlogin</servlet-name>
   	<url-pattern>/dashboard/dashboardlogin</url-pattern>

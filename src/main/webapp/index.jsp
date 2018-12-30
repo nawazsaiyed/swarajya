@@ -4,7 +4,7 @@
 	<%@include file="head.html" %>
 </head>
 <body>
-<%@include file="header.html" %>
+<%@include file="header.jsp" %>
 <div class="container-fluid">
 	<div class="row">
 		<div class="col-md-2 mx-auto">
